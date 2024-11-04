@@ -39,7 +39,7 @@ public class PostsController : ControllerBase
     [HttpPost("CreatePost")]
     public async Task<ActionResult> CreatePost([FromBody] PostDTO postDto)
     {
-        // Mapeo manual del DTO al modelo Post.
+        // Mapeo
         var post = new Post
         {
             Title = postDto.Title,
@@ -48,7 +48,7 @@ public class PostsController : ControllerBase
             UserId = postDto.UserId,
         };
 
-        // Añadir el post a la base de datos.
+        // Añadir 
         _context.Posts.Add(post);
         await _context.SaveChangesAsync();
 
